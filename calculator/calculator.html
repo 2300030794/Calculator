@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+            margin: 0;
+        }
+
+        .calculator {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 80%;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            font-size: 20px;
+            color: #333;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Click and get it!</h1>
+        <input id="a" type="number" placeholder="Enter number">
+        <input id="op" type="text" placeholder="Enter operator (+, -, *, /)">
+        <input id="b" type="number" placeholder="Enter number">
+        <p id="out"></p>
+        <button onclick="calc()">Click it to get it!</button>
+    </div>
+    <script>
+        function calc(){
+            let a = parseFloat(document.getElementById("a").value);
+            let b = parseFloat(document.getElementById("b").value);
+            let op = document.getElementById("op").value.trim();
+            let r;
+
+            if(op == "+")
+                r = a + b;
+            else if(op == "-")
+                r = a - b;
+            else if(op == "*")
+                r = a * b;
+            else if(op == "/")
+                r = b !== 0 ? a / b : "error";
+            else
+                r = "invalid";
+
+            document.getElementById("out").innerText = "Result: " + r;
+        }
+    </script>
+</body>
+</html>
